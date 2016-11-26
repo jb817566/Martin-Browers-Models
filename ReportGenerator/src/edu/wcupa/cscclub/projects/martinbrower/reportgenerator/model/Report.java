@@ -20,7 +20,8 @@ import java.util.ArrayList;
 * + toString(): String
 * + save (filename: String) void
 * + exportToExcel(fileName: String) void
- */
+*/
+
 public class Report {
 
     private ArrayList<Page> sections;
@@ -51,6 +52,5 @@ public class Report {
     public void exportToExcel() {
 
     }
-;
 
 }
