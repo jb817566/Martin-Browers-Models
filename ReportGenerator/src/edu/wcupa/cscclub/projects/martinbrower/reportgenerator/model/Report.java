@@ -5,6 +5,10 @@
  */
 package edu.wcupa.cscclub.projects.martinbrower.reportgenerator.model;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -20,13 +24,15 @@ import java.util.ArrayList;
 * + toString(): String
 * + save (filename: String) void
 * + exportToExcel(fileName: String) void
-*/
-
+ */
 public class Report {
 
     private ArrayList<Page> sections;
     private ArrayList page;
-
+    private String fileName;
+    File file = new File (fileName);
+    
+    
     // + Report (page : Page)
     public Report(ArrayList Page) {
         Page = page;
@@ -40,17 +46,22 @@ public class Report {
     // + toString(): String
     @Override
     public String toString() {
-        return "Report{" + page + '}';
+        //return "Report{" + page + '}';
+        return fileName+".doc";
     }
 
     // + save (filename: String) void
-    public void save() {
-
+    public void save(String fileName) throws IOException {
+        BufferedWriter out = new BufferedWriter(new FileWriter(file));
+        out.write(fileName);
+        out.close();
     }
 
     // + exportToExcel(fileName: String) void
-    public void exportToExcel() {
-
+    public void exportToExcel(String fileName) throws IOException {
+        BufferedWriter out = new BufferedWriter(new FileWriter(file));
+        out.write(fileName+".csv");
+        out.close();
     }
 
 }
